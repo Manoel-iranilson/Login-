@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { Alert, View } from "react-native";
 export const AuthContext = React.createContext({});
 
 function AuthProvider({ children }: any) {
@@ -18,6 +19,8 @@ function AuthProvider({ children }: any) {
   function singIn(email: string, senha: string) {
     if (email == veremail && senha == versenha) {
       navigation.navigate("Details");
+    } else {
+      Alert.alert("Campos Invalidos", "Verifique o Email e a Senha");
     }
   }
   return (
